@@ -1,62 +1,47 @@
-Advanced Network Scanner
+# 🔎 Advanced Network Scanner
 
-advance_network_scan is a multi-tool automation framework for penetration testers, red teamers, and network administrators.
-It combines popular open-source scanning and enumeration tools into a single unified interface, provides real-time output, and automatically generates a comprehensive HTML report.
+`advance_network_scan` is a **multi-tool automation framework** for penetration testers, red teamers, and network administrators.  
+It combines popular open-source scanning and enumeration tools into a **single unified interface**, provides **real-time output**, and automatically generates a **comprehensive HTML report**.
 
-✨ Features
+---
 
-🖥 Multi-tool integration
+## ✨ Features
 
-Nmap (basic, aggressive, NSE scripts)
+- 🖥 **Multi-tool integration**
+  - Nmap (basic, aggressive, NSE scripts)
+  - Masscan (top ports, full port scan)
+  - SNMP-check & SNMPwalk for SNMP enumeration
+  - ARP-scan for local network discovery
+- ⚡ **Real-time output streaming** while scans run
+- 🔀 **Multithreaded execution** (run multiple scans at once)
+- 📊 **Automatic HTML report generation** with:
+  - Command executed
+  - Success/failure status
+  - Full scan output
+- 📁 **Clean and organized report storage** with timestamps
+- 🚨 Handles missing tools gracefully (shows "Not Installed")
+- 🔒 Root privilege warning for scans that require it
 
-Masscan (top ports, full port scan)
+---
 
-SNMP-check & SNMPwalk for SNMP enumeration
+## 🛠 Requirements
 
-ARP-scan for local network discovery
+- Python **3.7+**
+- Linux (tested on **Kali Linux**, **Parrot OS**, **Ubuntu**)
+- Tools:
+  - `nmap`
+  - `masscan`
+  - `arp-scan`
+  - `snmp-check`
+  - `snmpwalk`
 
-⚡ Real-time output streaming while scans run
+### Install dependencies (Debian/Kali-based):
 
-🔀 Multithreaded execution (run multiple scans at once)
-
-📊 Automatic HTML report generation with:
-
-Command executed
-
-Success/failure status
-
-Full scan output
-
-📁 Clean and organized report storage with timestamps
-
-🚨 Handles missing tools gracefully (shows "Not Installed")
-
-🔒 Root privilege warning for scans that require it
-
-🛠 Requirements
-
-Python 3.7+
-
-Linux (tested on Kali Linux, Parrot OS, Ubuntu)
-
-The following tools installed:
-
-nmap
-
-masscan
-
-arp-scan
-
-snmp-check
-
-snmpwalk
-
-Install dependencies on Debian/Kali-based systems:
-
+```bash
 sudo apt update
 sudo apt install -y nmap masscan arp-scan snmp snmp-mibs-downloader
 
-📦 Installation
+Installation
 
 Clone the repository:
 
@@ -80,18 +65,11 @@ Start the tool:
 python3 advance_network_scan.py
 
 Example Workflow
-
-Enter your target IP or range:
-
 Enter IP or Network Range (e.g., 192.168.1.0/24): 192.168.1.0/24
-
-
-Select scans to run (comma separated):
-
 Select scans to run (comma separated, 0 for all): 1,2,3
 
 
-Watch results in real-time.
+Watch results in real-time
 
 At the end, an HTML report is generated automatically:
 
@@ -109,19 +87,21 @@ At the end, an HTML report is generated automatically:
 8	SNMPwalk	Deep SNMP enumeration (MIBs)	snmpwalk -v2c -c public 192.168.1.10
 📊 Reporting
 
-Reports are saved automatically in HTML format:
+Reports are saved in HTML format
 
-Easy to read
+Includes:
 
-Includes commands, outputs, and status
+Command used
+
+Status (success / failure)
+
+Full scan output
 
 File naming convention:
 
 scan_report_YYYYMMDD_HHMMSS.html
 
-
-Example report snippet:
-
+Example Report Snippet
 <h2>Nmap (Basic)</h2>
 <span class="status success">Success</span>
 <p>Command: nmap -sV 192.168.1.10</p>
@@ -134,9 +114,9 @@ PORT     STATE SERVICE VERSION
 ⚠️ Legal Disclaimer
 
 This tool is intended for educational purposes and authorized penetration testing only.
-Unauthorized scanning of systems that you do not own or have explicit permission to test is illegal.
+Unauthorized scanning of systems you do not own or lack explicit permission to test is illegal.
 
 👨‍💻 Author
 
 Veer Kumar
-Cybersecurity Enthusiast | Red Teaming & OSINT | Open-Source Advocate
+Cybersecurity Enthusiast • Red Teaming & OSINT • Open-Source Advocate
